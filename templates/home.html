@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section id="home">
+        <h2>Welcome to FRC Scouting!</h2>
+        <p>This website is designed to help you gather information about teams, matches, and performances at an FRC event. Use this tool to make informed decisions about alliances and strategies.</p>
+    </section>
+
+    <section id="teams">
+        <h2>Teams</h2>
+        <p>Below is a list of teams participating in the event:</p>
+        <ul id="team-list">
+            <!-- Teams will be populated dynamically using Flask template rendering -->
+            {% for team in teams %}
+                <li><a href="{{ url_for('team_results', team_number=team) }}">{{ team }}</a></li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="matches">
+        <h2>Match Schedule</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Match #</th>
+                    <th>Red Alliance</th>
+                    <th>Blue Alliance</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Team 1234, Team 5678, Team 1112</td>
+                    <td>Team 9101, Team 1314, Team 1516</td>
+                    <td>10:00 AM</td>
+                </tr>
+                <!-- Add more matches as needed -->
+            </tbody>
+        </table>
+    </section>
+
+    <section id="scouting-form">
+        <h2>Scouting Form</h2>
+        <form action="{{ url_for('submit') }}" method="post">
+            <label for="team-number">Team Number:</label>
+            <select id="team-number" name="team-number" required>
+                <option value="" disabled selected>Select a team</option>
+                {% for team in teams %}
+                    <option value="{{ team }}">{{ team }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="match-number">Match Number:</label>
+            <input type="text" id="match-number" name="match-number" required>
+
+            <label for="performance">Performance Notes:</label>
+            <textarea id="performance" name="performance" rows="4" required></textarea>
+
+            <label for="score">Score:</label>
+            <input type="number" id="score" name="score" required>
+
+            <input type="submit" value="Submit Scouting Data">
+        </form>
+    </section>
+
+{% endblock %}

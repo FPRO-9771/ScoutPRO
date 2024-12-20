@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team {{ team.team_number }} - Results</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<header>
+    <h1>Team {{ team.team_number }} - Results</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('home') }}#teams">Teams</a></li>
+            <li><a href="{{ url_for('home') }}#matches">Matches</a></li>
+            <li><a href="{{ url_for('home') }}#scouting-form">Scouting Form</a></li>
+            <li><a href="{{ url_for('home') }}#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section>
+    <h2>Match Results for Team {{ team.team_number }}</h2>
+    {% if team.matches %}
+        <table>
+            <thead>
+            <tr>
+                <th>Match Number</th>
+                <th>Performance</th>
+                <th>Score</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% set total_score = 0 %}
+            {% for match in team.matches %}
+                <tr>
+                    <td>{{ match.match_number }}</td>
+                    <td>{{ match.performance }}</td>
+                    <td>{{ match.score }}</td>
+                    {% set total_score = total_score + match['score'] %}
+                </tr>
+            {% endfor %}
+            <tr class="totals-row">
+                <td colspan="2">Total Score</td>
+                <td>{{ total_score }}</td>
+            </tr>
+            </tbody>
+        </table>
+    {% else %}
+        <p>No match data available for this team.</p>
+    {% endif %}
+</section>
+
+<footer>
+    <h2>Contact Us</h2>
+    <p>If you have any questions or suggestions, feel free to reach out to our team at <a
+            href="mailto:frcscouting@example.com">frcscouting@example.com</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,139 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #eef2f3;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #4e73df;
+    color: #ffffff;
+    padding: 30px;
+    text-align: center;
+    border-radius: 15px;
+    margin: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3em;
+}
+
+section {
+    padding: 10px;
+    max-width: 1000px;
+    margin: 25px auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    font-size: 2.5em;
+    color: #4e73df;
+    border-bottom: 3px solid #4e73df;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 25px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+table th {
+    background-color: #4e73df;
+    color: #ffffff;
+}
+
+table tr:nth-child(even) {
+    background-color: #f0f3f5;
+}
+
+.totals-row {
+    font-weight: bold;
+    background-color: #4e73df;
+    color: #ffffff;
+    border-radius: 15px;
+}
+
+footer {
+    text-align: center;
+    padding: 5px;
+    background-color: #000000;
+    color: #ffffff;
+    margin: 0;
+}
+.footer-logo {
+    width: 15px;
+}
+footer a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Adaptive styles for different devices */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    section {
+        padding: 10px;
+    }
+
+    table th, table td {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    section h2 {
+        font-size: 1.8em;
+    }
+
+    table th, table td {
+        padding: 10px;
+    }
+}
+
+/* Larger button styles */
+button, input[type="submit"] {
+    padding: 15px 25px;
+    font-size: 1.2em;
+    color: #ffffff;
+    background-color: #4e73df;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #375a7f;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
